@@ -1,7 +1,7 @@
 #!/bin/bash
 
 image=$1
-tag="0.1.0"
+tag="1.0.0"
 
 if [ $# = 0 ]
 then
@@ -13,8 +13,8 @@ fi
 # founction for delete images
 function docker_rmi()
 {
-	echo -e "\n\nsudo docker rmi kiwenlau/$1:$tag"
-	sudo docker rmi kiwenlau/$1:$tag
+	echo -e "\n\nsudo docker rmi comp689/$1:$tag"
+	sudo docker rmi comp689/$1:$tag
 }
 
 
@@ -22,8 +22,8 @@ function docker_rmi()
 function docker_build()
 {
 	cd $1
-	echo -e "\n\nsudo docker build -t kiwenlau/$1:$tag ."
-	/usr/bin/time -f "real  %e" sudo docker build -t kiwenlau/$1:$tag .
+	echo -e "\n\nsudo docker build -t comp689/$1:$tag ."
+	/usr/bin/time -f "real  %e" sudo docker build -t comp689/$1:$tag .
 	cd ..
 }
 
@@ -33,17 +33,7 @@ sudo docker rm -f slave1 slave2 master
 
 sudo docker images >images.txt
 
-if [ $image == "serf-dnsmasq" ]
-then
-	docker_rmi hadoop-master
-	docker_rmi hadoop-slave
-	docker_rmi hadoop-base
-	docker_rmi serf-dnsmasq
-	docker_build serf-dnsmasq
-	docker_build hadoop-base
-	docker_build hadoop-master
-	docker_build hadoop-slave 
-elif [ $image == "hadoop-base" ]
+if [ $image == "hadoop-base" ]
 then
 	docker_rmi hadoop-master
 	docker_rmi hadoop-slave
