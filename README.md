@@ -5,8 +5,8 @@ Build Hadoop Cluster based on Docker, Swarm, Weave
 ```
 1. Project Introduction
 2. Hadoop-Cluster-Docker image Introduction
-3. Steps to build a 3 nodes Hadoop Cluster
-4. Steps to build an arbitrary size Hadoop Cluster
+3. Steps to build a Hadoop Cluster
+4. Clean up existed containers
 ```
 
 ##1. Project Introduction
